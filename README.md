@@ -18,5 +18,4 @@ The solution uses **magic numbers** (binary signatures) to determine the file’
 * **Upload Validation**: Protection against malicious uploads in web applications
 * **Email Inspection**: Identification of dangerous attachments
 
-Segue explorando: ferramentas assim viram a cola invisível entre sistemas e a realidade binária que eles tentam esconder.
 
