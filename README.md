@@ -1,4 +1,5 @@
-##FileScout
+
+# FileScout
 
 > Binary analyzer that identifies the real type of files through their signatures (magic numbers).
 
