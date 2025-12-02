@@ -1,0 +1,35 @@
+flowchart TD
+  A[Início<br/>Arquivo enviado] --> B[Checar tamanho mínimo evita arquivos vazios ou truncados]
+  B --> C[Ler primeiros N bytes<br/>magic number]
+  C --> D[Identificar MIME real]
+  D --> E[Comparar magic number com banco oficial]
+
+  subgraph DB [Banco de Assinaturas Oficiais]
+    DB1[PNG, JPG, PDF, ZIP, EXE,...]
+  end
+  E --- DB
+
+  E --> F{Magic bate<br/>com alguma assinatura?}
+
+  F -->|Não| X1[Marcar como suspeito<br/>Tipo real desconhecido]
+  X1 --> Z[Fim]
+
+  F -->|Sim| G[Comparar MIME real com a extensão declarada]
+  G --> H{Extensão e tipo real<br/>são compatíveis?}
+
+  H -->|Não| X2[Arquivo renomeado<br/>Possível evasão ou mascaramento]
+  X2 --> I[Verificar integridade <br/>Checksum / Hash / assinatura digital]
+  I --> Z
+
+  H -->|Sim| J[Arquivo consistente]
+
+  J --> K[Verificar integridade <br/>Checksum / Hash / assinatura digital]
+  K --> L{Integridade OK?}
+
+  L -->|Não| X3[Arquivo corrompido ou alterado]
+  X3 --> Z
+
+  L -->|Sim| Y[Arquivo válido e seguro<br/>pode ser processado]
+  Y --> Z[Fim]
+
+  style DB fill:#f3f4f6,stroke:#777,stroke-width:1px
