@@ -405,3 +405,6 @@ This tool transforms file type identification from a manual, error-prone forensi
 - Supports forensic workflows and incident response
 - Demonstrates advanced understanding of malware evasion techniques
 - Provides measurable ROI through time savings and risk reduction
+
+## JSON File with file signatures
+https://gist.github.com/neutrinoguy/b6cdbe854b34b9fc32c7bbe88b8eb261
